@@ -13,15 +13,13 @@ connection=psycopg2.connect(
 print(connection)
 
 
-insert_sql_query="""
-
-    INSERT INTO customer(ID, NAME, AGE, ADDRESS, LOAN_AMOUNT)
-    VALUES(2, 'Murat', 37, 'NY', 2000.45)
+delete_sql_query="""
+            DELETE FROM customer WHERE id=4
 """
 
 pointer=connection.cursor()
 
-pointer.execute(insert_sql_query)
+pointer.execute(delete_sql_query)
 connection.commit()
-print("record is created")
+print("record is deleted")
 connection.close()
